@@ -7,6 +7,7 @@ public enum AppError: Error, LocalizedError {
     case sync(String)
     case validation(field: String, message: String)
     case selfInvitation
+    case alreadyCollaborator
     case notFound
     case unknown
 
@@ -22,6 +23,8 @@ public enum AppError: Error, LocalizedError {
             return msg
         case .selfInvitation:
             return "Tu ne peux pas accepter ta propre invitation."
+        case .alreadyCollaborator:
+            return "Tu fais déjà partie de ce jardin."
         case .notFound:
             return "Élément introuvable."
         case .unknown:
