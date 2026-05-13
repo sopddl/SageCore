@@ -8,7 +8,8 @@ import Foundation
 public enum SupportedLanguage: String, CaseIterable, Identifiable, Codable, Sendable {
     case french = "fr"
     case english = "en"
-    // Futures langues : case german = "de", case spanish = "es", etc.
+    case spanish = "es"
+    // Futures langues : case german = "de", case italian = "it", etc.
 
     public var id: String { rawValue }
 
@@ -17,6 +18,7 @@ public enum SupportedLanguage: String, CaseIterable, Identifiable, Codable, Send
         switch self {
         case .french: return "Français"
         case .english: return "English"
+        case .spanish: return "Español"
         }
     }
 

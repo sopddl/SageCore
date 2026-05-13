@@ -8,11 +8,12 @@ final class SupportedLanguageTests: XCTestCase {
 
     // MARK: - allCases (AC4)
 
-    func testAllCases_containsFrenchAndEnglish() {
+    func testAllCases_containsFrenchEnglishSpanish() {
         let allCases = SupportedLanguage.allCases
         XCTAssertTrue(allCases.contains(.french), "allCases should contain .french")
         XCTAssertTrue(allCases.contains(.english), "allCases should contain .english")
-        XCTAssertGreaterThanOrEqual(allCases.count, 2)
+        XCTAssertTrue(allCases.contains(.spanish), "allCases should contain .spanish")
+        XCTAssertGreaterThanOrEqual(allCases.count, 3)
     }
 
     // MARK: - rawValue
@@ -25,6 +26,10 @@ final class SupportedLanguageTests: XCTestCase {
         XCTAssertEqual(SupportedLanguage.english.rawValue, "en")
     }
 
+    func testRawValue_spanish_isEs() {
+        XCTAssertEqual(SupportedLanguage.spanish.rawValue, "es")
+    }
+
     // MARK: - nativeName
 
     func testNativeName_french_isFrançais() {
@@ -33,6 +38,10 @@ final class SupportedLanguageTests: XCTestCase {
 
     func testNativeName_english_isEnglish() {
         XCTAssertEqual(SupportedLanguage.english.nativeName, "English")
+    }
+
+    func testNativeName_spanish_isEspañol() {
+        XCTAssertEqual(SupportedLanguage.spanish.nativeName, "Español")
     }
 
     // MARK: - Identifiable
@@ -51,6 +60,10 @@ final class SupportedLanguageTests: XCTestCase {
 
     func testInitLanguageCode_validEn() {
         XCTAssertEqual(SupportedLanguage(languageCode: "en"), .english)
+    }
+
+    func testInitLanguageCode_validEs() {
+        XCTAssertEqual(SupportedLanguage(languageCode: "es"), .spanish)
     }
 
     func testInitLanguageCode_unsupported_fallsBackToFrench() {
